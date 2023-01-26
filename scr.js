@@ -12,17 +12,18 @@ function bt_click()
         tikets.delete(res);
         let k1 = win_list.get(res_str)
         win_list.set(res_str, ++k1)
+        res_str += ' руб.'
     }
     for (var [key, value] of tikets)
     {
         sumbonus+=value;
     }
-    document.getElementById("i1").innerHTML = '<h3>'+res_str+'<h3>';
+    document.getElementById("i1").innerHTML = res_str
     document.getElementById("ticby").innerHTML = ticby.toLocaleString("ru");
-    document.getElementById("cost").innerHTML = (ticby*50).toLocaleString('ru');
-    document.getElementById("wincost").innerHTML = wincost.toLocaleString('ru');
+    document.getElementById("cost").innerHTML = (ticby*50).toLocaleString('ru')+ ' руб.';
+    document.getElementById("wincost").innerHTML = wincost.toLocaleString('ru')+ ' руб.';
     document.getElementById("wintic").innerHTML = tikets.size.toLocaleString('ru');
-    document.getElementById("sumbonus").innerHTML = sumbonus.toLocaleString('ru');
+    document.getElementById("sumbonus").innerHTML = sumbonus.toLocaleString('ru') + ' руб.';
     document.getElementById("w50").innerHTML = win_list.get(50);
     document.getElementById("w125").innerHTML = win_list.get(125);
     document.getElementById("w250").innerHTML = win_list.get(250);
