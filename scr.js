@@ -3,8 +3,7 @@ function  calc(){
     ost_tic = all_tikets.size
     let res = Math.floor(Math.random()*all_tikets.size)
     const arr = Array.from(all_tikets)
-    const idx = arr[res]
-    //console.log(idx)
+    const idx = arr[res]    
     wincost+=idx[1]
     let k1 = win_list.get(idx[1])
     win_list.set(idx[1], ++k1)
@@ -15,8 +14,7 @@ function  calc(){
         res_str = "Без выигрыша"
     }
     let rn = all_tikets.delete(idx[0])
-    //setInterval(100)
-    //if (rn!=true) console.log(res, res_str)
+    
 }
 
 function page (){
@@ -46,9 +44,6 @@ function bt_click()
 
 
 
-
-
-//document.getElementById("bt")
 let res_str = "Удачной игры! Хотя..."
 let sb=0
 let wincost = 0;
