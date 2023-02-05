@@ -14,6 +14,12 @@ button {
     width: 25%;
     margin: auto;
 }
-#bt2 {
-    display: none;
+#bt2{
+    background-color: #800040;
+    font-size: small;
+}
+
+#bt3{
+    background-color: #800040;
+    font-size: small;
 }

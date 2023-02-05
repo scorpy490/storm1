@@ -1,9 +1,10 @@
 function  calc(){
     ticby++;
     ost_tic = all_tikets.size
-    let res = Math.floor(Math.random()*all_tikets.size)
-    const arr = Array.from(all_tikets)
-    const idx = arr[res]    
+
+    let r = Math.floor(Math.random()*all_tikets.size)
+    const arr = all_tikets.entries()
+    let idx = arr.next().value
     wincost+=idx[1]
     let k1 = win_list.get(idx[1])
     win_list.set(idx[1], ++k1)
@@ -14,6 +15,8 @@ function  calc(){
         res_str = "Без выигрыша"
     }
     let rn = all_tikets.delete(idx[0])
+    delete idx
+    return idx[1]
     
 }
 
@@ -25,14 +28,26 @@ function page (){
     document.getElementById("wincost").innerHTML = wincost.toLocaleString('ru')+ ' руб.';
     document.getElementById("sb").innerHTML = sb.toLocaleString('ru') + ' руб.';
     document.getElementById("wintic").innerHTML =  all_tikets.size.toLocaleString('ru')
-    document.getElementById("h0").innerHTML = win_list.get(0);
-    document.getElementById("w50").innerHTML = win_list.get(50);
-    document.getElementById("w125").innerHTML = win_list.get(125);
-    document.getElementById("w250").innerHTML = win_list.get(250);
-    document.getElementById("w1250").innerHTML = win_list.get(1250);
-    document.getElementById("w2k5").innerHTML = win_list.get(2500);
+    document.getElementById("h0").innerHTML = win_list.get(0).toLocaleString('ru');
+    document.getElementById("w50").innerHTML = win_list.get(50).toLocaleString('ru');
+    document.getElementById("w125").innerHTML = win_list.get(125).toLocaleString('ru');
+    document.getElementById("w250").innerHTML = win_list.get(250).toLocaleString('ru');
+    document.getElementById("w1250").innerHTML = win_list.get(1250).toLocaleString('ru');
+    document.getElementById("w2k5").innerHTML = win_list.get(2500).toLocaleString('ru');
     document.getElementById("w12k5").innerHTML = win_list.get(125000);
     document.getElementById("w1m").innerHTML = win_list.get(1000000);
+
+    if (ticby>50) {
+        document.getElementById("bt2").style.display = ""}
+    else{
+        document.getElementById("bt2").style.display = "None"
+    }
+    if (ticby>20000){
+        document.getElementById("bt3").style.display = ""
+    }
+    else {
+        document.getElementById("bt3").style.display = "None"
+    }
 }
 function bt_click()
 {
@@ -87,12 +102,12 @@ for (const [key] of priz_arr){
 summ()
 page()
 
-function bt2_click(){
-    let b = document.getElementById("bt2")
-    for (i=0;i<100;i++) {
-        //document.getElementById("bt2").setAttribute('disabled', 'true')
-        calc()
+function bt2_click(n){
+    let s = 0
+    for (i=0;i<n;i++) {
+        s+=calc()
     }
+    res_str = s.toLocaleString('ru') + " руб."
     summ()
     page()
 

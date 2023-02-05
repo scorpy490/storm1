@@ -1,6 +1,6 @@
 body {
     font: 12pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
-    background: #e1dfb9; /* Цвет фона */
+    background: #cccccc; /* Цвет фона */
 }
 h2 {
     font-size: 1.1em; /* Размер шрифта */
@@ -28,11 +28,66 @@ h2 {
 #content {
     margin-left: 130px; /* Отступ слева */
     padding: 10px; /* Поля вокруг текста */
-    background: #fff; /* Цвет фона правой колонки */
+    background: #cccccc; /* Цвет фона правой колонки */
 }
 #footer {
     background: #8fa09b; /* Цвет фона подвала */
     color: #fff; /* Цвет текста */
     padding: 6px; /* Отступы вокруг текста */
     clear: left; /* Отменяем действие float */
+}
+
+
+#vertical_tab_nav{
+    width: 900px;
+    margin:0 auto;
+    display: block;
+    overflow:hidden;
+}
+#vertical_tab_nav ul{
+    display: block;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    overflow: hidden;
+    width: 250px;
+    border-radius: 15px 0 0 15px;
+}
+#vertical_tab_nav li{
+    margin-bottom: 1px;
+    text-align: left;
+    padding: 0px;
+}
+#vertical_tab_nav li:hover {
+    margin-bottom: 1px;
+    text-align: left;
+    padding: 2px;
+}
+#vertical_tab_nav li:last-child{
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+#vertical_tab_nav li a{
+    display: block;
+    font-size: 14pt;
+    color: #fff;
+    text-decoration: none;
+    padding: 4%;
+    background: #6c5a9d;
+    background: -webkit-linear-gradient(top,#A79ACB,#6c5a9d);
+    background: -moz-linear-gradient(top,#A79ACB,#6c5a9d);
+}
+#vertical_tab_nav li a.selected{
+    background: #efefef;
+    color: #000;
+}
+#vertical_tab_nav div{
+    display: block;
+    float: left;
+    background: #cccccc;
+    width:800px;
+    min-height: 260px;
+    padding: 10px 3% 3% 3%;
+    border-radius: 0 10px 10px 0;
 }
