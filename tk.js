@@ -2,19 +2,36 @@ addEventListener("keydown", tk);
 let k, s, t
 s=''
 txt='Никакой софт не должен быть платным'
-document.getElementById('txt').innerText = txt
+//document.getElementById('txt1').innerText = txt
 let tm1
 let tm2
 let err = 0
+let sf=''
+
+let p = document.createElement ('h2')
+
+p.id = "txt1"
+
+for (i=0;i<txt.length;i++){
+    sf+='<span id="' + i+ '">' + txt[i] + '</span>'
+
+}
+p.innerHTML = sf
+document.body.prepend (p)
+
+
+
 
 function  tk1() {
     let pos = s.length
     if (pos===0) tm1 = Date.now()
     if (txt[pos]==k){
         s+=k
-        document.getElementById('tk').innerText = s
+        //console.log (document.getElementById(pos).style.background)
+        document.getElementById(pos).style.backgroundColor = "Yellow"
     }
     else {
+        document.getElementById(pos).style.backgroundColor = "Red"
         err+=1
     }
     if (s.length === txt.length) {
