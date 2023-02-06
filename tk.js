@@ -1,7 +1,8 @@
-addEventListener("keydown", tk);
+addEventListener("keydown", kdown);
 let k, s, t
 s=''
 txt='Никакой софт не должен быть платным'
+txt='Привет!\nCофт не должен быть платным'
 //document.getElementById('txt1').innerText = txt
 let tm1
 let tm2
@@ -14,6 +15,7 @@ p.id = "txt1"
 
 for (i=0;i<txt.length;i++){
     sf+='<span id="' + i+ '">' + txt[i] + '</span>'
+    if (txt[i]=='\n') s+='</br>'
 
 }
 p.innerHTML = sf
@@ -27,8 +29,7 @@ function  tk1() {
     if (pos===0) tm1 = Date.now()
     if (txt[pos]==k){
         s+=k
-        //console.log (document.getElementById(pos).style.background)
-        document.getElementById(pos).style.backgroundColor = "Yellow"
+        if (document.getElementById(pos).style.backgroundColor!=='red')  document.getElementById(pos).style.backgroundColor = "Yellow"
     }
     else {
         document.getElementById(pos).style.backgroundColor = "Red"
@@ -46,7 +47,7 @@ function  tk1() {
 
 
 
-function tk(e){
+function kdown(e){
    //console.log(e.keyCode)
     if (e.keyCode>30) {
         k = e.key
