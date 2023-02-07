@@ -1,22 +1,25 @@
-function  calc(){
-    ticby++;
-    ost_tic = all_tikets.size
+function  calc(n){    
+    if (ost_tic < n) n= ost_tic
+    let k1=0
+    let s1=0
 
     let r = Math.floor(Math.random()*all_tikets.size)
     const arr = all_tikets.entries()
-    let idx = arr.next().value
-    wincost+=idx[1]
-    let k1 = win_list.get(idx[1])
-    win_list.set(idx[1], ++k1)
-    if (idx[1]>0){
-        res_str = idx[1]+' руб.'
+    for (let i=0;i<n;i++){
+        ticby++;
+        let idx = arr.next().value
+        wincost+=idx[1]
+        k1 = win_list.get(idx[1])
+        win_list.set(idx[1], ++k1)
+        s1+=idx[1]    
+        all_tikets.delete(idx[0])          
     }
-    else {
-        res_str = "Без выигрыша"
-    }
-    let rn = all_tikets.delete(idx[0])
-    delete idx
-    return idx[1]
+ost_tic = all_tikets.size
+res_str = s1+' руб.'
+if (s1===0) res_str = "Без выигрыша"
+if (ost_tic==0) res_str="Билеты кончились!"
+summ()
+page()
     
 }
 
@@ -49,14 +52,6 @@ function page (){
         document.getElementById("bt3").style.display = "None"
     }
 }
-function bt_click()
-{
-    calc()
-    summ()
-    page()
-
-}
-
 
 
 let res_str = "Удачной игры! Хотя..."
@@ -102,16 +97,7 @@ for (const [key] of priz_arr){
 summ()
 page()
 
-function bt2_click(n){
-    let s = 0
-    for (i=0;i<n;i++) {
-        s+=calc()
-    }
-    res_str = s.toLocaleString('ru') + " руб."
-    summ()
-    page()
 
-}
 
 function summ(){
     sb = 0
