@@ -28,11 +28,11 @@ function  tk1() {
     let pos = s.length
     if (pos===0) tm1 = Date.now()
     if (txt[pos]==k){
-        s+=k
-        if (document.getElementById(pos).style.backgroundColor!=='Orange')  document.getElementById(pos).style.backgroundColor = "Yellow"
+        s+=k        
+        if (document.getElementById(pos).style.backgroundColor!=="orange")  document.getElementById(pos).style.backgroundColor = "yellow"
     }
     else {
-        document.getElementById(pos).style.backgroundColor = "Orange"
+        document.getElementById(pos).style.backgroundColor = "orange"
         err+=1
     }
     if (s.length === txt.length) {
