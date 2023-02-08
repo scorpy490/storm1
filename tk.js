@@ -2,7 +2,7 @@ addEventListener("keydown", kdown);
 let k, s, t
 s=''
 txt='Никакой софт не должен быть платным'
-txt='Привет!\nCофт не должен быть платным'
+//txt='Привет!\nCофт не должен быть платным'
 //document.getElementById('txt1').innerText = txt
 let tm1
 let tm2
@@ -29,10 +29,10 @@ function  tk1() {
     if (pos===0) tm1 = Date.now()
     if (txt[pos]==k){
         s+=k
-        if (document.getElementById(pos).style.backgroundColor!=='red')  document.getElementById(pos).style.backgroundColor = "Yellow"
+        if (document.getElementById(pos).style.backgroundColor!=='Orange')  document.getElementById(pos).style.backgroundColor = "Yellow"
     }
     else {
-        document.getElementById(pos).style.backgroundColor = "Red"
+        document.getElementById(pos).style.backgroundColor = "Orange"
         err+=1
     }
     if (s.length === txt.length) {

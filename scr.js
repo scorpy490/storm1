@@ -25,7 +25,7 @@ page()
 
 function page (){
 
-    document.getElementById("i1").innerHTML = res_str
+    document.getElementById("i1").innerHTML = res_str.toLocaleString ('ru')
     document.getElementById("ticby").innerHTML = ticby.toLocaleString("ru");
     document.getElementById("cost").innerHTML = (ticby*50).toLocaleString('ru')+ ' руб.';
     document.getElementById("wincost").innerHTML = wincost.toLocaleString('ru')+ ' руб.';
