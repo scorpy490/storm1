@@ -1,26 +1,33 @@
 addEventListener("keydown", kdown);
-let k, s, t
-s=''
-txt='Никакой софт не должен быть платным'
+let k=0, s, t
+s = ''
+let txt = ''
 //txt='Привет!\nCофт не должен быть платным'
 //document.getElementById('txt1').innerText = txt
-let tm1
-let tm2
+let tm1 //Время начала
+let tm2 //Время завершения
 let err = 0
-let sf=''
+let sf = ''
+let p = document.createElement('h2')
 
-let p = document.createElement ('h2')
+function start() {
+    s = ''
+    txt = 'Никакой софт не должен быть платным'
+    err = 0
+    sf = ''
+    p.id = "txt1"
 
-p.id = "txt1"
+    for (let i = 0; i < txt.length; i++) {
+        sf += '<span id="' + i + '">' + txt[i] + '</span>'
+       // if (txt[i] == '\n') s += '</br>'
 
-for (i=0;i<txt.length;i++){
-    sf+='<span id="' + i+ '">' + txt[i] + '</span>'
-    if (txt[i]=='\n') s+='</br>'
+    }
+    p.innerHTML = sf
+    document.body.prepend(p)
+    document.getElementById('bt').style.display="none"
+    document.getElementById('bt').disabled=true
 
 }
-p.innerHTML = sf
-document.body.prepend (p)
-
 
 
 

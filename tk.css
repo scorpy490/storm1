@@ -5,3 +5,12 @@
 p{
     font-size: larger;
 }
+
+#centered {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    background: #f0f0f0;
+    margin: -50px 0 0 -100px;
+}
+
