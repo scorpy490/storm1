@@ -13,9 +13,10 @@ let p = document.createElement('h2')
 p.style.border = "3px solid blue"
 p.style.paddingLeft = "5px"
 let exesize = new Map
-exesize.set (1, "оа вал лов фол фал лафа вы фад фод дылда лод важл жфла авдл ожда вфды")
-exesize.set (2, "Никакой софт не должен быть платным")
-exesize.set (3, "Бесплатный сыр бывает только в мышеловке")
+exesize.set (1, "проверка")
+exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда лод важл алла авдл ожда вфды")
+exesize.set (3, "никакой софт не должен быть платным")
+exesize.set (4, "бесплатный сыр бывает только в мышеловке")
 
 function start() {
     document.getElementById('resume').innerText = ''
@@ -65,7 +66,7 @@ function  tk1() {
             title_resume.style.color = "red"
             title_resume.innerText = "Задание не выполнено"
         }
-        let res = ('Задание выпонено! '+ '\nЗнаков: '+ pos + '\nВремя: '+ delta+  " сек.\nОшибок: "+ err+ '\nСкорость: '+ Math.floor(pos/delta*60) + " знаков в минуту")
+        let res = ('Знаков: '+ pos + '\nВремя: '+ delta+  " сек.\nОшибок: "+ err+ '\nСкорость: '+ Math.floor(pos/delta*60) + " знаков в минуту")
         document.getElementById('resume').innerText = res
         document.getElementById('bt').style.display=""
         document.getElementById('bt').disabled=false
