@@ -13,7 +13,7 @@ let p = document.createElement('h2')
 p.style.border = "3px solid blue"
 p.style.paddingLeft = "5px"
 let exesize = new Map
-exesize.set (1, "проверка")
+exesize.set (1, "проверка\nпривет мир")
 exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда лод важл алла авдл ожда вфды")
 exesize.set (3, "никакой софт не должен быть платным")
 exesize.set (4, "бесплатный сыр бывает только в мышеловке")
@@ -30,7 +30,7 @@ function start() {
 
     for (let i = 0; i < txt.length; i++) {
         sf += '<span id="' + i + '">' + txt[i] + '</span>'
-       // if (txt[i] == '\n') s += '</br>'
+       if (txt[i] === '\n') sf += '</br>'
 
     }    
     p.innerHTML = sf
@@ -45,9 +45,23 @@ function start() {
 function  tk1() {
     let pos = s.length
     if (pos===0) tm1 = Date.now()
-    if (txt[pos]==k){
-        s+=k        
-        if (document.getElementById(pos).style.backgroundColor!=="orange")  document.getElementById(pos).style.backgroundColor = "yellow"
+    if (txt[pos]==='\n') {
+        if (k===' ' || k==='Enter') {
+            pos+=1
+            s+='\n'
+            return
+        }
+        else {
+            let old_pos = pos-1
+            document.getElementById(old_pos.toString()).style.backgroundColor = "magenta"
+            err+=1
+            return;
+        }
+    }
+    if (txt[pos]===k){
+        s+=k
+        if (document.getElementById(pos).style.backgroundColor==="orange")  document.getElementById(pos).style.backgroundColor = "gray"
+        if (document.getElementById(pos).style.backgroundColor==="")  document.getElementById(pos).style.backgroundColor = "yellow"
     }
     else {
         document.getElementById(pos).style.backgroundColor = "orange"
@@ -57,7 +71,7 @@ function  tk1() {
         tm2 = Date.now()
         let delta = Math.floor(tm2-tm1)/1000
         let title_resume = document.getElementById("title_resume")
-        if (err <2) {
+        if (err <4) {
             step++
             title_resume.style.color = "green"
             title_resume.innerText = "Задание выполнено"
@@ -79,7 +93,7 @@ function  tk1() {
 
 function kdown(e){
    //console.log(e.keyCode)
-    if (e.keyCode>30) {
+    if (e.keyCode>30 || e.keyCode===13) {
         k = e.key
         tk1()
     }
