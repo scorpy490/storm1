@@ -32,3 +32,58 @@ p{
     margin: 2%;
 }
 
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.4);
+    z-index: 1;
+}
+
+.modal-content {
+    max-width: 960px;
+    background-color: azure;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.modal-header {
+    background-color: azure;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.modal-body {
+    background-color: azure;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.modal-footer {
+    background-color: azure;
+    padding: 10px;
+    text-align: center;
+}
+
+.modal-button {
+    background-color: #4CAF50;
+    border: 2px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+

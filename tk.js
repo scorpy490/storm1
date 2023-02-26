@@ -1,3 +1,4 @@
+
 addEventListener("keydown", kdown);
 let k=0, s, t
 let step=1
@@ -14,11 +15,14 @@ p.style.border = "3px solid blue"
 p.style.paddingLeft = "5px"
 let exesize = new Map
 exesize.set (1, "проверка\nпривет мир")
-exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда лод важл алла авдл ожда вфды")
+exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
 exesize.set (3, "никакой софт не должен быть платным")
 exesize.set (4, "бесплатный сыр бывает только в мышеловке")
 
+openModal('Привет Мир', 'Достучись до космической скорости!', start,closeModal)
+
 function start() {
+    closeModal()
     document.getElementById('resume').innerText = ''
     document.getElementById('title_resume').innerText = ''
 
@@ -32,11 +36,11 @@ function start() {
         sf += '<span id="' + i + '">' + txt[i] + '</span>'
        if (txt[i] === '\n') sf += '</br>'
 
-    }    
+    }
     p.innerHTML = sf
     document.body.prepend(p)
-    document.getElementById('bt').style.display="none"
-    document.getElementById('bt').disabled=true
+    //document.getElementById('bt').style.display="none"
+    //document.getElementById('bt').disabled=true
 
 }
 
@@ -60,11 +64,11 @@ function  tk1() {
     }
     if (txt[pos]===k){
         s+=k
-        if (document.getElementById(pos).style.backgroundColor==="orange")  document.getElementById(pos).style.backgroundColor = "gray"
+        if (document.getElementById(pos).style.backgroundColor==="red")  document.getElementById(pos).style.backgroundColor = "orange"
         if (document.getElementById(pos).style.backgroundColor==="")  document.getElementById(pos).style.backgroundColor = "yellow"
     }
     else {
-        document.getElementById(pos).style.backgroundColor = "orange"
+        document.getElementById(pos).style.backgroundColor = "red"
         err+=1
     }
     if (s.length === txt.length) {
@@ -82,8 +86,9 @@ function  tk1() {
         }
         let res = ('Знаков: '+ pos + '\nВремя: '+ delta+  " сек.\nОшибок: "+ err+ '\nСкорость: '+ Math.floor(pos/delta*60) + " знаков в минуту")
         document.getElementById('resume').innerText = res
-        document.getElementById('bt').style.display=""
-        document.getElementById('bt').disabled=false
+        //document.getElementById('bt').style.display=""
+        //document.getElementById('bt').disabled=false
+        openModal('Привет Мир', 'Упражнение №' + step, start,closeModal)
     }
 
 }
@@ -98,5 +103,29 @@ function kdown(e){
         tk1()
     }
 }
+
+function openModal(title, message, confirmHandler, cancelHandler) {
+    var modal = document.getElementById("modal");
+    var titleElement = document.getElementById("modal-title");
+    var messageElement = document.getElementById("modal-message");
+    var confirmButton = document.getElementById("modal-confirm");
+    var cancelButton = document.getElementById("modal-cancel");
+
+    titleElement.textContent = title;
+    messageElement.textContent = message;
+    confirmButton.onclick = confirmHandler;
+    cancelButton.onclick = cancelHandler;
+
+    modal.style.display = "block";
+    confirmButton.focus()
+}
+
+function closeModal() {
+    console.log("Закрываем")
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
+}
+
+
 
 
