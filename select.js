@@ -8,7 +8,7 @@ function resp() {
 
     let resp = q.responseText
     console.log(q.statusText)
-    console.log('Здесь', q.readyState)
+   // console.log('Здесь', q.readyState)
     console.log(resp)
 
 }
