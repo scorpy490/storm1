@@ -1,5 +1,4 @@
 let q = new XMLHttpRequest()
-
 q.open("get", "http://nt32.ru/select.php")
 q.send()
 q.onload = resp
@@ -30,6 +29,16 @@ function resp() {
         }
         //document.write('<br\>')
     }
+
+}
+
+function truncate() {
+    console.log('Начинаем очистку')
+    let q = new XMLHttpRequest()
+    q.open("get", "http://nt32.ru/truncate.php?truncate=truncate")
+    q.send()
+    location.reload()
+
 
 }
 

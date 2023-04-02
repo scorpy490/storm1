@@ -1,5 +1,12 @@
 <?php
-include ('config.php');
+/**
+ * @var string $db_host
+ * @var string $db_base
+ * @var string $db_user
+ * @var string $db_password
+ */
+//include ('config.php');
+require ('config.php');
 
 //header('Content-Type: text/plain');
 $date = date('m/d/Y h:i:s a', time());
@@ -21,12 +28,9 @@ $level = 10;
 }
 $ip = $_SERVER['REMOTE_ADDR'];
 if ($ip!='109.111.171.42' && $ip!='5.44.173.85') {
-    echo ('Уходим');
+    echo json_encode(['Уходим']);
     exit;
 }
-
-
-
 try {    
     $db = new PDO("mysql:host=$db_host;dbname=$db_base", $db_user, $db_password);
     
