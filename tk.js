@@ -1,7 +1,14 @@
+let exesize = new Map
+exesize.set (1, "проверка\nпривет мир")
+exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
+exesize.set (3, "никакой софт не должен быть платным")
+exesize.set (4, "бесплатный сыр бывает только в мышеловке")
+exesize.set (0, "Коуч предлагал понимать так: Россия под руководством единственных европейцев всю свою историю занималась совершенно не нужными ее обитателям делами, плоды которых пожинали другие страны и народы. Как деревенский идиот, которого зовут с улицы в приличный дом помахаться в общей драке, а потом снова выставляют на мороз.")
+
 
 addEventListener("keydown", kdown);
 let k=0, s, t
-let step=1
+let step=0
 s = ''
 let txt
 //txt='Привет!\nCофт не должен быть платным'
@@ -13,11 +20,7 @@ let sf = ''
 let p = document.createElement('h2')
 p.style.border = "3px solid blue"
 p.style.paddingLeft = "5px"
-let exesize = new Map
-exesize.set (1, "проверка\nпривет мир")
-exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
-exesize.set (3, "никакой софт не должен быть платным")
-exesize.set (4, "бесплатный сыр бывает только в мышеловке")
+
 
 openModal('Привет Мир', 'Достучись до космической скорости!', start,closeModal)
 
@@ -110,10 +113,14 @@ function openModal(title, message, confirmHandler, cancelHandler) {
     var messageElement = document.getElementById("modal-message");
     var confirmButton = document.getElementById("modal-confirm");
     var cancelButton = document.getElementById("modal-cancel");
+    let randomButton = document.getElementById("modal-random");
 
     titleElement.textContent = title;
     messageElement.textContent = message;
     confirmButton.onclick = confirmHandler;
+
+    randomButton.onclick = randomEx;
+
     cancelButton.onclick = cancelHandler;
 
     modal.style.display = "block";
@@ -122,10 +129,15 @@ function openModal(title, message, confirmHandler, cancelHandler) {
 
 function closeModal() {
     console.log("Закрываем")
-    var modal = document.getElementById("modal");
+    const modal = document.getElementById("modal");
     modal.style.display = "none";
 }
 
+function randomEx(){
+    let rand = Math.floor(Math.random()*exesize.size)
+    step = rand
+    start()
+}
 
 
 
