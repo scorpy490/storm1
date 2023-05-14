@@ -27,8 +27,9 @@ $text = "txt";
 $level = 10;
 }
 $ip = $_SERVER['REMOTE_ADDR'];
-if ($ip!='109.111.171.42' && $ip!='5.44.173.85') {
+if ($ip!='109.111.171.42' && $ip != '5.44.173.42') {
     echo json_encode(['Уходим']);
+    echo ($ip);
     exit;
 }
 try {    
