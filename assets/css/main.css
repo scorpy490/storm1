@@ -31,7 +31,6 @@ form {
 input {
     margin: 10px 0;
     padding: 10px;
-    border: unset;
     border-bottom: 2px solid #e3e3e3;
     outline: none;
 }
@@ -53,4 +52,11 @@ button {
 
 .logout {
     color: #b7625c;
+}
+
+#vk_auth {
+    position: static;
+    display: table-row;
+    flex-direction: row;
+    width: 70px;
 }
