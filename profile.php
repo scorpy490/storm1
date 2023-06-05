@@ -10,7 +10,7 @@ if (!$_SESSION['user']) {
 <head>
     <meta charset="UTF-8">
     <title>Авторизация и регистрация</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+<!--    <link rel="stylesheet" href="assets/css/main.css">-->
 </head>
 <body>
 
@@ -22,6 +22,20 @@ if (!$_SESSION['user']) {
         <a href="#"><?= $_SESSION['user']['email'] ?></a>
         <a href="vendor/logout.php" class="logout">Выход</a>
     </form>
+
+    <form action="vendor/timer_add.php" method="post">
+
+        <h2 Создать таймер</h2>
+        <label>Название таймера</label>
+        <input type="text" name="timer_mame" placeholder="">
+        <label>Продолжительность</label>
+        <input type="text" name="interval" placeholder="Дни">
+        <button type="submit">Установить</button>
+
+    </form>
+
+   
+
 
 </body>
 </html>
