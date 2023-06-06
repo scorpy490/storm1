@@ -6,7 +6,7 @@
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Авторизация и регистрация</title>
