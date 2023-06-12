@@ -1,13 +1,17 @@
-<?session_start();?>
-
+<?session_start();
+include 'connect.php';
+if (!isset($_SESSION['user'])) {
+header('Location: /');
+}
+?>
 <!doctype html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Авторизация и регистрация</title>
     <!--    <link rel="stylesheet" href="assets/css/main.css">-->
 </head>
-<body>
+<br>
 
 <!-- Профиль -->
 
@@ -29,16 +33,21 @@
     <button type="submit">Установить</button>
 
 </form>
+</br>
+
+
+<form action="profile.php" method="get">
+
+    <button type="submit">Обновить</button>
+
+</form>
 
 <?php
 ini_set('display_errors',1);
 setlocale(LC_ALL, 'ru_RU', 'ru_RU.UTF-8', 'ru', 'russian');
 date_default_timezone_set('Asia/Tomsk');
 error_reporting(E_ALL);
-include 'connect.php';
-if (!$_SESSION['user']) {
-    header('Location: /');
-}
+
 $userid = $_SESSION['user']['id'];
 if (isset($_POST['timer_name'])){
     ins_timer($userid, $_POST['timer_name']);
@@ -66,11 +75,18 @@ while ($row = $result->fetch_assoc()) {
     //$dt_cr = date("D M j G:i:s T Y",$cr_time);
     $dt_cr = date("D M j G:i:s",$cr_time);
 
-    $delta = time()-$continue_time+ $row['value_tm'];
-    $dt = secToArray($delta);
-    $dtstr = $dt['days'].':'.$dt['hours'].':'.$dt['minutes'].':'.$dt['secs'];
-    $btn_str = btn_str($id, $row['active']);
-    //$dtstr = $dt[0].':'.$dt[1].':'.$dt[2].':'.$dt[3];
+    if ($row['active']==1) {
+
+        $delta = time() - $continue_time + $row['value_tm'];
+    }
+    else {
+        $delta=$row['value_tm'];
+    }
+        $dt = secToArray($delta);
+        $dtstr = $dt['days'] . ':' . $dt['hours'] . ':' . str_pad( $dt['minutes'],2, 0, 0) . ':' . str_pad( $dt['secs'], 2, 0, 0);
+        $btn_str = btn_str($id, $row['active']);
+        //$dtstr = $dt[0].':'.$dt[1].':'.$dt[2].':'.$dt[3];
+
 
    // print_r($row);
 
@@ -80,7 +96,7 @@ while ($row = $result->fetch_assoc()) {
 
     <table border=1>   
         <tr> 
-        <td width='150px'>   $txt </td> 
+        <td width='150px'><a href='#'>   $txt </a></td> 
         <td width='160px'>   $dt_cr </td> 
         <td width='100px'> $dtstr </td> 
         <td> $btn_str </td>
@@ -143,7 +159,7 @@ $stmt->execute();*/
 function paused_timer ($id){
     include 'connect.php';
     $now = time();
-    $queryStr= "INSERT UPDATE `timers` SET (`value_tm`= $now-`continue_time`, `count_tm`= `count_tm`+1, `active`=not `active`, `continue_time`= $now) WHERE `id`= $id ";
+    $queryStr= "UPDATE `timers` SET `value_tm`= ($now-`continue_time`)*`active` + `value_tm`, `count_tm`= `count_tm`+ `active`, `active`=not `active`, `continue_time`= $now WHERE `id`= $id ";
     $check_user = mysqli_query($connect, $queryStr);
 }
 
