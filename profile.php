@@ -1,7 +1,7 @@
 <?session_start();
 include 'connect.php';
 if (!isset($_SESSION['user'])) {
-header('Location: /');
+header('Location: login.php');
 }
 ?>
 <!doctype html>
@@ -28,8 +28,8 @@ header('Location: /');
     <p Создать таймер></p>
     <label>Название таймера</label>
     <input type="text" name="timer_name" placeholder="" autocomplete="off">
-    <label>Продолжительность</label>
-    <input type="text" name="interval" placeholder="Дни"  autocomplete="off">
+    <label>Назад</label>
+    <input type="text" name="interval" placeholder="в часах"  autocomplete="off">
     <button type="submit">Установить</button>
 
 </form>
@@ -50,7 +50,7 @@ error_reporting(E_ALL);
 
 $userid = $_SESSION['user']['id'];
 if (isset($_POST['timer_name'])){
-    ins_timer($userid, $_POST['timer_name']);
+    ins_timer($userid, $_POST['timer_name'], $_POST['interval']);
     //echo "Готово";
 }
 
@@ -132,28 +132,16 @@ function secToArray($secs)
     return $res;
 }
 
-function ins_timer($userid, $timername) {
+function ins_timer($userid, $timername, $interval) {
     include 'connect.php';
     $userid = $_SESSION['user']['id'];
-    $now = time();
+    $now = time()-($interval*3600);
     $queryStr= "INSERT INTO `timers` (`id_user`, `txt`, `cr_time`, `continue_time`,`value_tm`, `end_time`, `count_tm`, `active`) VALUES ('$userid','$timername','$now','$now', 0,null,0,1)";
     $check_user = mysqli_query($connect, $queryStr);
     //echo $queryStr;
 
 
-/*$QueryStr = "INSERT INTO `timers` (`id_user`, `txt`, `cr_time`, `value_tm`, `end_time`, `count_tm`, `active`) VALUES (:id_user, :txt, :cr_time, :value_tm, :end_time, :count_tm, :active)";
 
-$stmt = $dbh->prepare($QueryStr);
-
-$stmt->bindParam(':id_user', $sessid);
-$stmt->bindParam(':txt', 'timer1');
-$stmt->bindParam(':cr_time', $now);
-$stmt->bindParam(':value_tm', 0);
-$stmt->bindParam(':end_time', null);
-$stmt->bindParam(':count_tm', 0);
-$stmt->bindParam(':active', 1);
-
-$stmt->execute();*/
 }
 
 function paused_timer ($id){
