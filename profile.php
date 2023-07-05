@@ -74,6 +74,8 @@ while ($row = $result->fetch_assoc()) {
     //$dt_cr = gmdate("Y-m-d\TH:i:s\Z", $cr_time);
     //$dt_cr = date("D M j G:i:s T Y",$cr_time);
     $dt_cr = date("D M j G:i:s",$cr_time);
+    $btn_str = btn_str($id, $row['active']);
+    $link_edit = link_edit ($id, $txt);
 
     if ($row['active']==1) {
 
@@ -84,7 +86,6 @@ while ($row = $result->fetch_assoc()) {
     }
         $dt = secToArray($delta);
         $dtstr = $dt['days'] . ':' . $dt['hours'] . ':' . str_pad( $dt['minutes'],2, 0, 0) . ':' . str_pad( $dt['secs'], 2, 0, 0);
-        $btn_str = btn_str($id, $row['active']);
         //$dtstr = $dt[0].':'.$dt[1].':'.$dt[2].':'.$dt[3];
 
 
@@ -96,7 +97,7 @@ while ($row = $result->fetch_assoc()) {
 
     <table border=1>   
         <tr> 
-        <td width='150px'><a href='#'>   $txt </a></td> 
+        <td width='150px'> $link_edit </td> 
         <td width='160px'>   $dt_cr </td> 
         <td width='100px'> $dtstr </td> 
         <td> $btn_str </td>
@@ -106,6 +107,8 @@ while ($row = $result->fetch_assoc()) {
 }
 
 
+
+
 function btn_str ($id, $active) {
     if ($active==1) {
         $bt_text = "Паза";
@@ -113,6 +116,10 @@ function btn_str ($id, $active) {
         $bt_text = "Старт";
     }
     return $res =  "<form action='profile.php' method='post'><input type='hidden' name='btn_name' value='$id'><button type='submit' id=b$id >$bt_text</button></form>";
+}
+
+function link_edit ($id, $txt) {
+    return $res =  "<form action='edit_timer.php' method='post'><input type='hidden' name='i' value='$id'><button type='submit'>$txt</button></form>";
 }
 
 
