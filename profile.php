@@ -1,5 +1,6 @@
 <?session_start();
 include 'connect.php';
+include 'module1.php';
 if (!isset($_SESSION['user'])) {
 header('Location: login.php');
 }
@@ -123,27 +124,13 @@ function link_edit ($id, $txt) {
 }
 
 
-function secToArray($secs)
-{
-    $res = array();
 
-    $res['days'] = floor($secs / 86400);
-    $secs = $secs % 86400;
-
-    $res['hours'] = floor($secs / 3600);
-    $secs = $secs % 3600;
-
-    $res['minutes'] = floor($secs / 60);
-    $res['secs'] = $secs % 60;
-
-    return $res;
-}
 
 function ins_timer($userid, $timername, $interval) {
     include 'connect.php';
     $userid = $_SESSION['user']['id'];
     $now = time()-($interval*3600);
-    $queryStr= "INSERT INTO `timers` (`id_user`, `txt`, `cr_time`, `continue_time`,`value_tm`, `end_time`, `count_tm`, `active`) VALUES ('$userid','$timername','$now','$now', 0,null,0,1)";
+    $queryStr= "INSERT INTO `timers` (`id_user`, `txt`, `cr_time`, `begin_tm`,  `continue_time`,`value_tm`, `end_time`, `count_tm`, `active`) VALUES ('$userid','$timername','$now' ,'$now','$now', 0,null,0,1)";
     $check_user = mysqli_query($connect, $queryStr);
     //echo $queryStr;
 
