@@ -5,11 +5,19 @@ include 'module1.php';
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
+
+
+
 if (!isset($_POST['i'])){
     echo "неГотово";
     return;
 }
 $i = $_POST['i'];
+if (isset($_POST['del'])){
+    del_timer($i);
+    header('Location: profile.php');
+    return;
+}
 $userid = $_SESSION['user']['id'];
 $queryStr = "SELECT * from `timers` WHERE `id`= '$i' ";
 $result = mysqli_query($connect, $queryStr);
@@ -28,12 +36,21 @@ $delta = time() - $continue_time + $row['value_tm'];
 $dt = secToArray($delta);
 $dtstr = $dt['days'] . ' дн.' . $dt['hours'] . 'час.' . str_pad( $dt['minutes'],2, 0, 0) . 'мин.' . str_pad( $dt['secs'], 2, 0, 0)."`";
 echo "
+<p>$i</p>
 <p>$txt</p>   
-<p>$cr_time</p>
+<p>Создан : $dt_cr</p>
 <p>$dtstr</p>
 <p></p>
 <p></p>
 
-<p><a href='profile.php'>Выйти</p>
+<form action='edit_timer.php' method='post'><input type='hidden' name='i' value='$i'><input type='hidden' name='del' value='true'><button type='submit'>Удалить</button></form>
+
+<p><a href='profile.php'>Назад</p>
 
 ";
+
+function del_timer ($i) {
+    include 'connect.php';
+    $queryStr = "DELETE from `timers` WHERE `id`= '$i' ";
+    $result = mysqli_query($connect, $queryStr);
+}
