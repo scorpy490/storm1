@@ -2,9 +2,10 @@ body {
     margin: 10 px;
     padding: 30px;    
     max-width: 960px;
+    background-color: #cccccc;
 }
 #str_label {
-    border: 3px blue;
+    border: 3px #9e9ee8;
     padding: 0 10px;
 }
 
@@ -20,7 +21,7 @@ p{
     position: fixed; /* or absolute */
     top: 50%;
     left: 50%;
-    background: #f0f0f0;
+    background: rgba(240, 240, 240, 0.69);
     margin: -50px 0 0 -100px;
 }
 
@@ -46,7 +47,7 @@ p{
 
 .modal-content {
     max-width: 960px;
-    background-color: azure;
+    background-color: rgba(240, 240, 240, 0.69);
     margin: auto;
     padding: 20px;
     border-radius: 5px;
@@ -54,20 +55,20 @@ p{
 }
 
 .modal-header {
-    background-color: azure;
+    background-color: rgba(240, 240, 240, 0.69);
     padding: 10px;
     text-align: center;
     font-size: 1.5em;
 }
 
 .modal-body {
-    background-color: azure;
+    background-color: rgba(240, 240, 240, 0.69);
     padding: 10px;
     font-size: 1.2em;
 }
 
 .modal-footer {
-    background-color: azure;
+    background-color: rgba(240, 240, 240, 0.69);
     padding: 10px;
     text-align: center;
 }

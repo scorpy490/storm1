@@ -1,4 +1,6 @@
-function  calc(n){    
+const sound_bonus = new Audio ("sounds/dancy_continue.wav")
+const sound_fail = new Audio ("sounds/wow_bleep.wav")
+function  calc(n){
     if (ost_tic < n) n= ost_tic
     let k1=0
     let s1=0
@@ -24,6 +26,10 @@ page()
 }
 
 function page (){
+
+
+
+    if (res_str == "Без выигрыша") {sound_fail.play()} else {sound_bonus.play()}
 
     document.getElementById("i1").innerHTML = res_str.toLocaleString ('ru')
     document.getElementById("ticby").innerHTML = ticby.toLocaleString("ru");
