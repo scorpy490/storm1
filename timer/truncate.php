@@ -6,7 +6,7 @@
  * @var string $db_password
  */
 //include ('config.php');
-require ('config.php');
+require('config.php');
 
 //header('Content-Type: text/plain');
 

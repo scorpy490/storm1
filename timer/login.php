@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <title>Авторизация и регистрация</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script
             type="text/javascript"
             src="https://vk.com/js/api/openapi.js?168"
@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
         <input type="password" name="password" placeholder="Введите пароль">
         <button type="submit">Войти</button>
         <p>
-            У вас нет аккаунта? - <a href="/register.php">зарегистрируйтесь</a>!
+            У вас нет аккаунта? - <a href="/timer/register.phper.php">зарегистрируйтесь</a>!
         </p>
         <?php
             if (isset ($_SESSION['message'])) {

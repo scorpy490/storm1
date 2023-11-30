@@ -116,11 +116,11 @@ function btn_str ($id, $active) {
     } else {
         $bt_text = "Старт";
     }
-    return $res =  "<form action='profile.php' method='post'><input type='hidden' name='btn_name' value='$id'><button type='submit' id=b$id >$bt_text</button></form>";
+    return $res = "<form action='profile.php' method='post'><input type='hidden' name='btn_name' value='$id'><button type='submit' id=b$id >$bt_text</button></form>";
 }
 
 function link_edit ($id, $txt) {
-    return $res =  "<form action='edit_timer.php' method='post'><input type='hidden' name='i' value='$id'><button type='submit'>$txt</button></form>";
+    return $res = "<form action='edit_timer.php' method='post'><input type='hidden' name='i' value='$id'><button type='submit'>$txt</button></form>";
 }
 
 
