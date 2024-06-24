@@ -22,7 +22,7 @@ p.style.border = "3px solid blue"
 p.style.paddingLeft = "5px"
 
 
-openModal('Привет Мир', 'Достучись до космической скорости!', start,closeModal)
+openModal('Тренировка', 'Печатайте текст', start,closeModal)
 
 function start() {
     closeModal()
