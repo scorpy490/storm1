@@ -2,19 +2,51 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Таймеры</title>
+    <title>Добавление текста</title>
   <script src="timers.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: none;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
 </head>
 <body>
 
-<form action="timers.php" method="post">
+<form action="tk.php" method="post">
 
-    <p Создать таймер></p>
-    <label>Название таймера</label>
-    <input type="text" name="timer_name" placeholder="" autocomplete="off">
-    <label>Назад</label>
-    <input type="text" name="interval" placeholder="в часах"  autocomplete="off">
-    <button type="submit">Установить</button>
+
+    </head>
+    <body>
+
+    <h2>Two Column Table</h2>
+
+    <table border="0">
+        <tr>
+            <td>Текст</td>
+            <td><textarea id="txt" name="txt" rows="4" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td>Примечание</td>
+            <td><input type="text" name="note" placeholder="" autocomplete="off"></td>
+        </tr>
+    </table>
+
+
+    <p Добавить фразу></p>
+
+
+
+    <button type="submit">Добавить</button>
 
 </form>
 

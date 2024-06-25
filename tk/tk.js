@@ -1,28 +1,46 @@
 let exesize = new Map
-exesize.set (1, "проверка\nпривет мир")
-exesize.set (2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
-exesize.set (3, "никакой софт не должен быть платным")
-exesize.set (4, "бесплатный сыр бывает только в мышеловке")
-exesize.set (0, "Коуч предлагал понимать так: Россия под руководством единственных европейцев всю свою историю занималась совершенно не нужными ее обитателям делами, плоды которых пожинали другие страны и народы. Как деревенский идиот, которого зовут с улицы в приличный дом помахаться в общей драке, а потом снова выставляют на мороз.")
-
-
-addEventListener("keydown", kdown);
-let k=0, s, t
-let step=0
+let k = 0, s, t, p
+let step = 0
 s = ''
 let txt
-//txt='Привет!\nCофт не должен быть платным'
-//document.getElementById('txt1').innerText = txt
 let tm1 //Время начала
 let tm2 //Время завершения
 let err = 0
 let sf = ''
-let p = document.createElement('h2')
-p.style.border = "3px solid blue"
-p.style.paddingLeft = "5px"
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://nt32.ru/tk/tk.php", true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+            main (xhr.responseText);
+    }
+};
+//var data = JSON.stringify({select: 'true'});
+var data = "select=true";
+xhr.send(data);
+
+function main (jsonData) {
+
+    const tabl = JSON.parse(jsonData);
+    exesize = tabl.map(item => item.txt);
+
+    //exesize.set(1, "проверка\nпривет мир")
+    //exesize.set(2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
+    //exesize.set(3, "никакой софт не должен быть платным")
+    //exesize.set(4, "бесплатный сыр бывает только в мышеловке")
+    //exesize.set(0, "Коуч предлагал понимать так: Россия под руководством единственных европейцев всю свою историю занималась совершенно не нужными ее обитателям делами, плоды которых пожинали другие страны и народы. Как деревенский идиот, которого зовут с улицы в приличный дом помахаться в общей драке, а потом снова выставляют на мороз.")
 
 
-openModal('Тренировка', 'Печатайте текст', start,closeModal)
+    addEventListener("keydown", kdown);
+    p = document.createElement('h2')
+    p.style.border = "3px solid blue"
+    p.style.paddingLeft = "5px"
+
+
+    openModal('Тренировка', 'Печатайте текст', start, closeModal)
+}
 
 function start() {
     closeModal()

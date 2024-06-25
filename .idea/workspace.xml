@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbfeb6ea-6540-4b71-9907-f4c0df3d4785" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/tk/tk.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tk/tk_ins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tk/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tk/tk.php" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tk/tk_ins.html" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk_ins.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +36,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.tk_ins.html.executor": "Run",
     "Node.js.tk.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -51,7 +52,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "web.server",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -99,6 +100,7 @@
       <workItem from="1719215340722" duration="137000" />
       <workItem from="1719215485114" duration="403000" />
       <workItem from="1719215896445" duration="6558000" />
+      <workItem from="1719277679364" duration="26283000" />
     </task>
     <servers />
   </component>

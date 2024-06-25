@@ -1,10 +1,12 @@
 <?php
 session_start();
-include '../connect.php';
-include 'module1.php';
+include 'connect.php';
+//include 'module1.php';
 if (!isset($_SESSION['user'])) {
 //header('Location: login.php');
 }
+
+file_put_contents('log.txt', print_r($_POST, true), FILE_APPEND);
 
 
 
@@ -17,6 +19,7 @@ error_reporting(E_ALL);
 if (isset($_POST['txt'])){
     ins_txt($_POST['txt'], $_POST['note']);
     //echo "Готово";
+    header('Location: tk_ins.html');
 }
 
 if (isset($_POST['btn_name'])){
@@ -24,13 +27,19 @@ if (isset($_POST['btn_name'])){
     echo $_POST['btn_name'];
 }
 
-$queryStr = "SELECT * from `timers` ";
-$result = mysqli_query($connect, $queryStr);
-//$result = mysqli_fetch_assoc ($list);
-//print_r($listtimers);
-$data = $result->fetch_all(MYSQLI_ASSOC);
-echo (json_encode ($data));
-//return json_encode ($data);
+if (isset($_POST['select'])) {
+    echo select_txt();
+}
+
+function select_txt()
+{
+    include 'connect.php';
+    $queryStr = "SELECT * from `tk1` ";
+    $result = mysqli_query($connect, $queryStr);
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+    echo(json_encode($data));
+
+}
 
 
 
