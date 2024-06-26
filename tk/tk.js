@@ -1,6 +1,6 @@
 let exesize = new Map
 let k = 0, s, t, p
-let step = 0
+let step = 1
 s = ''
 let txt
 let tm1 //Время начала
@@ -24,7 +24,7 @@ xhr.send(data);
 function main (jsonData) {
 
     const tabl = JSON.parse(jsonData);
-    exesize = tabl.map(item => item.txt);
+    exesize = new Map (tabl.map(item => [item.id, item.txt]));
 
     //exesize.set(1, "проверка\nпривет мир")
     //exesize.set(2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
@@ -47,7 +47,7 @@ function start() {
     document.getElementById('resume').innerText = ''
     document.getElementById('title_resume').innerText = ''
 
-    txt = exesize.get(step)    
+    txt = exesize.get(step.toString())
     s = ''    
     err = 0
     sf = ''
@@ -109,7 +109,7 @@ function  tk1() {
         document.getElementById('resume').innerText = res
         //document.getElementById('bt').style.display=""
         //document.getElementById('bt').disabled=false
-        openModal('Привет Мир', 'Упражнение №' + step, start,closeModal)
+        openModal('Набирайте текст', 'Упражнение №' + step, start,closeModal)
     }
 
 }
@@ -146,7 +146,6 @@ function openModal(title, message, confirmHandler, cancelHandler) {
 }
 
 function closeModal() {
-    console.log("Закрываем")
     const modal = document.getElementById("modal");
     modal.style.display = "none";
 }
