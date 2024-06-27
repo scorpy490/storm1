@@ -7,6 +7,7 @@ let tm1 //Время начала
 let tm2 //Время завершения
 let err = 0
 let sf = ''
+let err_fl = 1 // флаг ошибки
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", "http://nt32.ru/tk/tk.php", true);
@@ -87,10 +88,15 @@ function  tk1() {
         s+=k
         if (document.getElementById(pos).style.backgroundColor==="red")  document.getElementById(pos).style.backgroundColor = "orange"
         if (document.getElementById(pos).style.backgroundColor==="")  document.getElementById(pos).style.backgroundColor = "yellow"
+        err_fl = 0
     }
     else {
         document.getElementById(pos).style.backgroundColor = "red"
-        err+=1
+        if (err_fl==0)  {
+            err+=1
+            err_fl = 1
+        }
+
     }
     if (s.length === txt.length) {
         tm2 = Date.now()
