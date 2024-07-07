@@ -60,7 +60,7 @@ function start() {
 
     }
     p.innerHTML = sf
-    document.body.prepend(p)
+    document.getElementById("text_div").append(p)
     //document.getElementById('bt').style.display="none"
     //document.getElementById('bt').disabled=true
 

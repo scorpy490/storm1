@@ -1,8 +1,9 @@
 body {
-    margin: 10 px;
+    margin: 10px;
     padding: 30px;    
     max-width: 960px;
     background-color: #cccccc;
+    display:block;
 }
 #str_label {
     border: 3px #9e9ee8;
@@ -92,14 +93,17 @@ p{
     padding: 0;
 }
 .dropdownmenu ul {
-    background: gray;
+    background: #f1ebeb;
     list-style: none;
     width: 100%;
 }
 .dropdownmenu li {
-    float: left;
+    /*float: left;*/
     position: relative;
     width:auto;
+    display: inline-block;
+    vertical-align: top;
+
 }
 .dropdownmenu a {
     background: #30A6E6;
