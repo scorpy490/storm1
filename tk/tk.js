@@ -9,7 +9,7 @@ let err = 0
 let sf = ''
 let err_fl = 1 // флаг ошибки
 
-var xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open("POST", "http://nt32.ru/tk/tk.php", true);
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.onreadystatechange = function () {
@@ -19,7 +19,7 @@ xhr.onreadystatechange = function () {
     }
 };
 //var data = JSON.stringify({select: 'true'});
-var data = "select=true";
+let data = "select=true";
 xhr.send(data);
 
 function main (jsonData) {
@@ -132,12 +132,12 @@ function kdown(e){
 }
 
 function openModal(title, message, confirmHandler, cancelHandler) {
-    var modal = document.getElementById("modal");
-    var titleElement = document.getElementById("modal-title");
-    var messageElement = document.getElementById("modal-message");
-    var confirmButton = document.getElementById("modal-confirm");
-    var cancelButton = document.getElementById("modal-cancel");
-    let randomButton = document.getElementById("modal-random");
+    const modal = document.getElementById("modal");
+    const titleElement = document.getElementById("modal-title");
+    const messageElement = document.getElementById("modal-message");
+    const confirmButton = document.getElementById("modal-confirm");
+    const cancelButton = document.getElementById("modal-cancel");
+    const randomButton = document.getElementById("modal-random");
 
     titleElement.textContent = title;
     messageElement.textContent = message;

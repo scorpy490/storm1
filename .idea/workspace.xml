@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbfeb6ea-6540-4b71-9907-f4c0df3d4785" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tk/tk.css" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tk/tk.html" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tk/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,16 +19,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN"
+      &quot;state&quot;: &quot;OPEN&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -54,6 +51,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.tk.html.executor": "Run",
     "JavaScript Debug.tk_ins.html.executor": "Run",
     "Node.js.tk.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -93,7 +91,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.15325.16" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17890.8" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.17890.8" />
       </set>
     </attachedChunks>
   </component>
@@ -125,6 +124,7 @@
       <workItem from="1720190564149" duration="253000" />
       <workItem from="1720190823937" duration="1815000" />
       <workItem from="1720193048684" duration="10777000" />
+      <workItem from="1720411751465" duration="1007000" />
     </task>
     <servers />
   </component>
