@@ -1,5 +1,5 @@
 let exesize = new Map
-let k = 0, s, t, p
+let k = 0, s, t, p, autor
 let step = 1
 s = ''
 let txt
@@ -21,11 +21,15 @@ xhr.onreadystatechange = function () {
 //var data = JSON.stringify({select: 'true'});
 let data = "select=true";
 xhr.send(data);
+document.cookie = "step=1";
 
 function main (jsonData) {
 
     const tabl = JSON.parse(jsonData);
-    exesize = new Map (tabl.map(item => [item.id, item.txt]));
+    exesize = new Map (tabl.map(item => [item.id, item.txt, item.note]));
+    //const res = tabl.find(item => item.id === step.toString());
+
+    //console.log(exesize[note])
 
     //exesize.set(1, "проверка\nпривет мир")
     //exesize.set(2, "оа вал лов фол фал лафа вы фад фод дылда вода важл алла жало вдова лыжа вожжа")
@@ -38,13 +42,15 @@ function main (jsonData) {
     p = document.createElement('h2')
     p.style.border = "3px solid blue"
     p.style.paddingLeft = "5px"
+    autor = document.createElement('p')
 
 
-    openModal('Тренировка', 'Печатайте текст', start, closeModal)
+
+    //openModal('Тренировка', 'Печатайте текст', start, closeModal)
 }
 
 function start() {
-    closeModal()
+    //closeModal()
     document.getElementById('resume').innerText = ''
     document.getElementById('title_resume').innerText = ''
 
@@ -60,7 +66,9 @@ function start() {
 
     }
     p.innerHTML = sf
+    //autor.innerText = exesize.get (step.toString())
     document.getElementById("text_div").append(p)
+    document.getElementById("text_div").append(autor)
     //document.getElementById('bt').style.display="none"
     //document.getElementById('bt').disabled=true
 
@@ -115,7 +123,7 @@ function  tk1() {
         document.getElementById('resume').innerText = res
         //document.getElementById('bt').style.display=""
         //document.getElementById('bt').disabled=false
-        openModal('Набирайте текст', 'Упражнение №' + step, start,closeModal)
+        openModal('Поздравляем, Вы завершили набор текста', '№' + step, start,closeModal)
     }
 
 }

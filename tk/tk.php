@@ -34,7 +34,7 @@ if (isset($_POST['select'])) {
 function select_txt()
 {
     include 'connect.php';
-    $queryStr = "SELECT * from `tk1` ";
+    $queryStr = "SELECT id, txt, note from `tk1` ";
     $result = mysqli_query($connect, $queryStr);
     $data = $result->fetch_all(MYSQLI_ASSOC);
     echo(json_encode($data));
