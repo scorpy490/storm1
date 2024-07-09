@@ -1,6 +1,6 @@
 let exesize = new Map
 let k = 0, s, t, p, autor
-let step = 1
+let step = getCookie('step')
 s = ''
 let txt
 let tm1 //Время начала
@@ -21,7 +21,13 @@ xhr.onreadystatechange = function () {
 //var data = JSON.stringify({select: 'true'});
 let data = "select=true";
 xhr.send(data);
-document.cookie = "step=1";
+if (getCookie('step')!==undefined) {
+    step = document.cookie
+}
+else {
+    document.cookie = "step="+step.toString();
+    step="1"
+}
 
 function main (jsonData) {
 
@@ -50,7 +56,7 @@ function main (jsonData) {
 }
 
 function start() {
-    //closeModal()
+    closeModal()
     document.getElementById('resume').innerText = ''
     document.getElementById('title_resume').innerText = ''
 
@@ -112,6 +118,7 @@ function  tk1() {
         let title_resume = document.getElementById("title_resume")
         if (err <4) {
             step++
+            document.cookie = "step="+step.toString()
             title_resume.style.color = "green"
             title_resume.innerText = "Задание выполнено"
         }
@@ -168,6 +175,12 @@ function randomEx(){
     let rand = Math.floor(Math.random()*exesize.size)
     step = rand
     start()
+}
+
+function getCookie(name) {
+    let value = `; ${document.cookie}`;
+    let parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
 
