@@ -1,6 +1,6 @@
 let exesize = new Map
 let k = 0, s, t, p, autor
-let step = getCookie('step')
+let step =1
 s = ''
 let txt
 let tm1 //Время начала
@@ -20,14 +20,16 @@ xhr.onreadystatechange = function () {
 };
 //var data = JSON.stringify({select: 'true'});
 let data = "select=true";
-xhr.send(data);
+console.log("step= "+ step)
 if (getCookie('step')!==undefined) {
-    step = document.cookie
+    step = getCookie('step')
 }
 else {
     document.cookie = "step="+step.toString();
     step="1"
 }
+console.log("step_u= "+ step)
+xhr.send(data);
 
 function main (jsonData) {
 
