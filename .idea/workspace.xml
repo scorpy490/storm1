@@ -7,7 +7,6 @@
     <list default="true" id="fbfeb6ea-6540-4b71-9907-f4c0df3d4785" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tk/tk.js" beforeDir="false" afterPath="$PROJECT_DIR$/tk/tk.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +130,7 @@
       <workItem from="1720526046241" duration="2588000" />
       <workItem from="1720544779053" duration="54000" />
       <workItem from="1720544836446" duration="6830000" />
-      <workItem from="1720584292060" duration="2279000" />
+      <workItem from="1720584292060" duration="3314000" />
     </task>
     <servers />
   </component>
