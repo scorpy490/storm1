@@ -12,6 +12,7 @@ header('Location: login.php');
     <title>Авторизация и регистрация</title>
     <!--    <link rel="stylesheet" href="assets/css/main.css">-->
 </head>
+<body>
 <br>
 
 <!-- Профиль -->
@@ -45,7 +46,8 @@ header('Location: login.php');
 
 <?php
 ini_set('display_errors',1);
-setlocale(LC_ALL, 'ru_RU', 'ru_RU.UTF-8', 'ru', 'russian');
+//setlocale(LC_ALL, 'ru_RU', 'ru_RU.UTF-8', 'ru', 'russian');
+setlocale(LC_ALL, 'ru_RU.utf8');
 date_default_timezone_set('Asia/Tomsk');
 error_reporting(E_ALL);
 
@@ -74,7 +76,7 @@ while ($row = $result->fetch_assoc()) {
     $continue_time = $row['continue_time'];
     //$dt_cr = gmdate("Y-m-d\TH:i:s\Z", $cr_time);
     //$dt_cr = date("D M j G:i:s T Y",$cr_time);
-    $dt_cr = date("D M j G:i:s",$cr_time);
+    $dt_cr = date("D, d M Y H:i:s",$cr_time);
     $btn_str = btn_str($id, $row['active']);
     $link_edit = link_edit ($id, $txt);
 
@@ -86,7 +88,7 @@ while ($row = $result->fetch_assoc()) {
         $delta=$row['value_tm'];
     }
         $dt = secToArray($delta);
-        $dtstr = $dt['days'] . ':' . $dt['hours'] . ':' . str_pad( $dt['minutes'],2, 0, 0) . ':' . str_pad( $dt['secs'], 2, 0, 0);
+        $dtstr = $dt['days'] . ' дн. ' . str_pad( $dt['hours'], 2, 0, 0) . ':' . str_pad( $dt['minutes'],2, 0, 0) . ':' . str_pad( $dt['secs'], 2, 0, 0);
         //$dtstr = $dt[0].':'.$dt[1].':'.$dt[2].':'.$dt[3];
 
 
@@ -100,7 +102,7 @@ while ($row = $result->fetch_assoc()) {
         <tr> 
         <td width='150px'> $link_edit </td> 
         <td width='160px'>   $dt_cr </td> 
-        <td width='100px'> $dtstr </td> 
+        <td width='80px'> $dtstr </td> 
         <td> $btn_str </td>
         </tr>
  </table>
@@ -110,7 +112,8 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-function btn_str ($id, $active) {
+function btn_str ($id, $active): string
+{
     if ($active==1) {
         $bt_text = "Паза";
     } else {
@@ -119,7 +122,8 @@ function btn_str ($id, $active) {
     return $res = "<form action='profile.php' method='post'><input type='hidden' name='btn_name' value='$id'><button type='submit' id=b$id >$bt_text</button></form>";
 }
 
-function link_edit ($id, $txt) {
+function link_edit ($id, $txt): string
+{
     return $res = "<form action='edit_timer.php' method='post'><input type='hidden' name='i' value='$id'><button type='submit'>$txt</button></form>";
 }
 
