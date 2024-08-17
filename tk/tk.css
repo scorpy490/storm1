@@ -3,7 +3,7 @@ body {
     padding: 30px;    
     max-width: 960px;
     background-color: #cccccc;
-    display:block;
+    /*display:block;*/
 }
 #str_label {
     border: 3px #9e9ee8;
